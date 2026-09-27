@@ -80,24 +80,56 @@ def fallback_split(
     return chunks
 
 
+MIN_PARAGRAPH_LENGTH = 60
+
+
 def split_documents(documents: list[Document]) -> list[Chunk]:
     """
-    Split documents into chunks. ⚠️ REPLACE THE BODY OF THIS IN MILESTONE 3.
+    Split documents into chunks, one per paragraph (blank-line separated).
 
-    Right now it just calls the fallback. That is the plain, generic behaviour
-    the brief is talking about.
+    campus_life documents are mostly one to three short paragraphs, each
+    covering its own sub-topic (e.g. walk-in hours vs. counseling intake in
+    health_center.txt). fallback_split's 800-character window rarely splits
+    these at all, so distinct sub-topics end up bundled into one chunk.
+    Splitting on paragraph breaks keeps each sub-topic as its own chunk
+    instead.
 
-    When you write your own strategy, set `produced_by` to
-    "chunker.py::split_documents" so your README's Sample Chunks section names
-    the right function. `app.py chunks` prints that string for you.
-
-    Things worth thinking about before you write any code:
-      - Are your documents short posts or long guides?
-      - Is the useful information in one sentence, or spread over a paragraph?
-      - Would splitting on paragraph breaks keep more thoughts intact than
-        splitting on a character count?
+    A paragraph shorter than MIN_PARAGRAPH_LENGTH characters is merged into a
+    neighboring paragraph from the same document rather than kept as its own
+    tiny, low-context chunk: a short first paragraph (often a bare title,
+    e.g. "PHYS 130 Mechanics") merges forward into the paragraph that
+    follows it, and a short paragraph anywhere else merges backward into the
+    one before it. Merging never crosses a document boundary.
     """
-    return fallback_split(documents)
+    chunks: list[Chunk] = []
+    for doc in documents:
+        paragraphs = [p.strip() for p in doc.text.split("\n\n")]
+        paragraphs = [p for p in paragraphs if p]
+
+        merged: list[str] = []
+        for paragraph in paragraphs:
+            if not merged:
+                merged.append(paragraph)
+            elif len(paragraph) < MIN_PARAGRAPH_LENGTH:
+                merged[-1] = f"{merged[-1]}\n\n{paragraph}"
+            else:
+                merged.append(paragraph)
+
+        if len(merged) > 1 and len(merged[0]) < MIN_PARAGRAPH_LENGTH:
+            merged[1] = f"{merged[0]}\n\n{merged[1]}"
+            merged.pop(0)
+
+        for index, text in enumerate(merged):
+            chunks.append(
+                Chunk(
+                    text=text,
+                    source=doc.source,
+                    index=index,
+                    produced_by="chunker.py::split_documents",
+                )
+            )
+
+    return chunks
 
 
 def describe(chunks: list[Chunk]) -> str:

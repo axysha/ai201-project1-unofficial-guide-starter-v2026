@@ -42,41 +42,48 @@
 
      Milestone 3. -->
 
-## Sample Chunks
-
-<!-- Five chunks, pasted as text. Label each one and name the file it came from
-     AND the function that produced it — the grader checks your code against
-     what you claim here.
-
-     `python app.py chunks -n 5` prints all three for you. Copy them straight
-     across.
-
-     Milestone 3. -->
-
-**Chunk 1** — source: `` — produced by: ``
+**Chunk 1** — source: `admin_add_drop_deadline.txt#0` — produced by: `chunker.py::split_documents`
 
 ```
-```
+On the add/drop deadline
 
-**Chunk 2** — source: `` — produced by: ``
-
-```
-```
-
-**Chunk 3** — source: `` — produced by: ``
+You can add a course through the end of the second week. Dropping is a longer window — through the end of week six — but a drop after week two shows as a W on your transcript. Nothing anywhere on the registrar's site says this plainly, and students find out from each other.
 
 ```
-```
 
-**Chunk 4** — source: `` — produced by: ``
-
-```
-```
-
-**Chunk 5** — source: `` — produced by: ``
+**Chunk 2** — source: `course_cs_340_exams.txt#1` — produced by: `chunker.py::split_documents`
 
 ```
+Start the term project in week three, not week eight; everyone learns this the hard way.
+
 ```
+
+**Chunk 3** — source: `course_stat_150.txt#0` — produced by: `chunker.py::split_documents`
+
+```
+STAT 150 Applied Statistics
+
+Transferred in last year, so take this with a grain of salt. Format is flipped: watch the recordings, class time is problem sets. Assessment: three equally weighted midterms, no final. No curve, but the lowest midterm is dropped.
+
+Expect 5 to 6 hours a week outside class.
+
+```
+
+**Chunk 4** — source: `health_center.txt#1` — produced by: `chunker.py::split_documents`
+
+```
+Counselling is separate, in the same building, and has its own intake process with a shorter wait than people expect — usually three or four days for a first session.
+
+```
+
+**Chunk 5** — source: `housing_morrow_house.txt#3` — produced by: `chunker.py::split_documents`
+
+```
+Laundry costs $1.50 wash, $1.25 dry, coin or card. On noise: loud until about 1am on weekends, no enforced quiet hours.
+
+```
+
+Note: Chunk 5 shows a remaining limitation of paragraph-boundary splitting — laundry pricing and noise policy are two distinct sub-topics that happen to share one paragraph (no blank line) in the source document, so they stay bundled together in one chunk.
 
 ## Sample Answer
 
