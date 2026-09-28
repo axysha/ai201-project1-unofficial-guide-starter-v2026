@@ -27,6 +27,8 @@
 
      Milestone 5. -->
 
+I picked the campus life corpus which contains 88 documents. This corpus answers questions related to course policy/grading, places on campus (like dining halls or libraries), and other day-to-day things about student life. Mostly the questions are pretty simple and straightfoward. 
+
 ## Chunking Strategy
 
 **Chunk size:**
@@ -87,9 +89,6 @@ Note: Chunk 5 shows a remaining limitation of paragraph-boundary splitting — l
 
 ## Sample Answer
 
-<!-- One complete question and answer, pasted as text, with the source line
-     visible. Milestone 4. -->
-
 **Question:**
 How long does it take to go from Fenwick Court to central campus?
 
@@ -103,15 +102,6 @@ Sources retrieved: dining_kestrel_commons_followup.txt, housing_fenwick_court.tx
 ```
 
 **My relevance cutoff:**
-
-<!-- The number you set in config.py, and how you got there.
-
-     You ran five questions your corpus covers and the five in OUT_OF_SCOPE
-     that it clearly doesn't, and wrote down the best distance for each. What
-     did those two groups look like? Where was the gap? Put the actual numbers
-     here — the table below wants all ten rows.
-
-     Milestone 4. -->
 
 The relevance cutoff I chose: 0.55
 
@@ -129,18 +119,11 @@ The relevance cutoff I chose: 0.55
 
 ## How I Used AI
 
-<!-- Two specific moments. For each: what you asked for, what came back, and
-     what you changed about it.
-
-     "I asked Claude to write the chunking function from my notes. It ignored
-     the overlap, so I added that myself" is the level of detail we're after.
-     "I used AI to help me code" is not.
-
-     Milestone 5. -->
-
 **1.**
+I asked Claude to help me think about how to measure the chunk size. It suggested that I consider running metrics to see what is character limit suits my specific corpus the most. Based on this feedback, I ran a couple of commands to consider how I wanted to improve my chunks and implement in my chunking function. 
 
 **2.**
+I asked Claude to explain to me the point of the relevance cut-off since I was confused about that. It explained to me that how the cutoff is the line you draw on the distance scale that decides whether the system is allowed to answer a question at all. I used this explanation to fine tune my campus life corpus and decrease my cut-off to more closely what I observed in my questions and answers. 
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
