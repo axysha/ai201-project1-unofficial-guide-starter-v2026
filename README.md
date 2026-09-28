@@ -91,10 +91,15 @@ Note: Chunk 5 shows a remaining limitation of paragraph-boundary splitting — l
      visible. Milestone 4. -->
 
 **Question:**
+How long does it take to go from Fenwick Court to central campus?
 
 **Answer:**
 
 ```
+It takes about 18 minutes on foot to go from Fenwick Court to central campus (sourced from `transit_walking.txt` and `housing_fenwick_court.txt`).
+
+Sources retrieved: dining_kestrel_commons_followup.txt, housing_fenwick_court.txt, transit_shuttle.txt, transit_walking.txt
+
 ```
 
 **My relevance cutoff:**
@@ -108,9 +113,19 @@ Note: Chunk 5 shows a remaining limitation of paragraph-boundary splitting — l
 
      Milestone 4. -->
 
+The relevance cutoff I chose: 0.55
+
 | Question | In corpus? | Best distance |
 |---|---|---|
-|  |  |  |
+| How long does it take to go from Fenwick Court to central campus? | Yes | 0.244 |
+| When do the parking permits go on sale? | Yes | 0.338 |
+| How late are the study rooms open in the library during the semester? | Yes | 0.288 |
+| How many tests does the Linear Algebra course have? | Yes | 0.472 |
+| What is the capital of Mongolia? | No | 0.787 |
+| How do I change the oil in a diesel engine? | No | 0.923 |
+| Who won the 1994 World Cup? | No | 0.847 |
+| What is the recommended dosage of ibuprofen for a headache? | No | 0.824 |
+| How do I write a for loop in Rust? | No | 0.881 |
 
 ## How I Used AI
 
