@@ -21,13 +21,21 @@ Swap them for your own if you like. Keep five of them either way: criterion 3
 names a target of "4 of 5", and four of three is not a thing.
 """
 
+# QUESTIONS = [
+#     # {"question": "...", "expects": "..."},
+#     {"question": "How long does it take to go from Fenwick Court to central campus?", "expects": "18 minutes, add 4 more minutes in the winter"},
+#     {"question": "When do the parking permits go on sale?", "expects": "August"},
+#     {"question": "How late are the study rooms open in the library during the semester?", "expects": "2 AM"},
+#     {"question": "How many tests does the Linear Algebra course have?", "expects": "Two midterms and a cumulative final"},
+#     {"question": "Is orientation mandatory and which ones should I go to?", "expects": "No, it's optional. But it is recommended to attend the two sessions where you meet your academic adviser and the library walkthrough"},
+# ]
+
 QUESTIONS = [
-    # {"question": "...", "expects": "..."},
-    {"question": "How long does it take to go from Fenwick Court to central campus?", "expects": "18 minutes, add 4 more minutes in the winter"},
+    {"question": "How long does it take to go from Fenwick Court to central campus?", "expects": "18 minutes"},
     {"question": "When do the parking permits go on sale?", "expects": "August"},
-    {"question": "How late are the study rooms open in the library during the semester?", "expects": "2 AM"},
-    {"question": "How many tests does the Linear Algebra course have?", "expects": "Two midterms and a cumulative final"},
-    {"question": "Is orientation mandatory and which ones should I go to?", "expects": "No, it's optional. But it is recommended to attend the two sessions where you meet your academic adviser and the library walkthrough"},
+    {"question": "How late are the study rooms open in the library during the semester?", "expects": "2am"},
+    {"question": "How many tests does the Linear Algebra course have?", "expects": "cumulative final"},
+    {"question": "Is orientation mandatory and which ones should I go to?", "expects": "optional"},
 ]
 
 # Questions from a different world entirely. Your gate should refuse all five.
